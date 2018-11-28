@@ -35,7 +35,22 @@ class Club
      * @ORM\ManyToOne(targetEntity="App\Entity\Sport", inversedBy="clubs")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $sports;
+    private $sport;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $ville;
+
+    /**
+     * @ORM\Column(type="string", length=5)
+     */
+    private $zipCode;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $acronym;
 
     public function getId(): ?int
     {
@@ -78,14 +93,50 @@ class Club
         return $this;
     }
 
-    public function getSports(): ?Sport
+    public function getSport(): ?Sport
     {
-        return $this->sports;
+        return $this->sport;
     }
 
-    public function setSports(?Sport $sports): self
+    public function setSport(?Sport $sport): self
     {
-        $this->sports = $sports;
+        $this->sport = $sport;
+
+        return $this;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getZipCode(): ?string
+    {
+        return $this->zipCode;
+    }
+
+    public function setZipCode(string $zipCode): self
+    {
+        $this->zipCode = $zipCode;
+
+        return $this;
+    }
+
+    public function getAcronym(): ?string
+    {
+        return $this->acronym;
+    }
+
+    public function setAcronym(?string $acronym): self
+    {
+        $this->acronym = $acronym;
 
         return $this;
     }

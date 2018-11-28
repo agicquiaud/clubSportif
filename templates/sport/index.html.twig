@@ -1,22 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Sport index{% endblock %}
+{% block title %}Sports{% endblock %}
 
 {% block body %}
-    <h1>Sport index</h1>
-
-    <table class="table">
+    <h1>List of the Sports</h1>
+    <button class="btn btn-outline-success" href="{{ path('sport_new') }}"> Create new</button>
+    <table class="table table-striped table-light">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for sport in sports %}
             <tr>
-                <td>{{ sport.id }}</td>
+                <td scope="row">{{ sport.id }}</td>
                 <td>{{ sport.name }}</td>
                 <td>
                     <a href="{{ path('sport_show', {'id': sport.id}) }}">show</a>
@@ -30,6 +30,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('sport_new') }}">Create new</a>
 {% endblock %}

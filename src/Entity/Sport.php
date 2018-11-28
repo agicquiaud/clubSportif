@@ -24,7 +24,7 @@ class Sport
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Club", mappedBy="Sport")
+     * @ORM\OneToMany(targetEntity="App\Entity\Club", mappedBy="sport")
      */
     private $clubs;
 
@@ -62,7 +62,7 @@ class Sport
     {
         if (!$this->clubs->contains($club)) {
             $this->clubs[] = $club;
-            $club->setSports($this);
+            $club->setSport($this);
         }
 
         return $this;
@@ -73,8 +73,8 @@ class Sport
         if ($this->clubs->contains($club)) {
             $this->clubs->removeElement($club);
             // set the owning side to null (unless already changed)
-            if ($club->getSports() === $this) {
-                $club->setSports(null);
+            if ($club->getSport() === $this) {
+                $club->setSport(null);
             }
         }
 

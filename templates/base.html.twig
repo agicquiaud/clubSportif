@@ -3,10 +3,29 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <script src="{{ asset('js/jquery-3.3.1.slim.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+            <a class="navbar-brand" href="{{ path('home') }}"><img src="{{ asset('img/logo-loiresillon.png') }}" height="75" width="175"></a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ path('sport_index') }}">Sports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('club_index') }}">Clubs</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container mr-0 ml-0 pl-2 pr-2 mw-100">
         {% block body %}{% endblock %}
+
+    </div>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
